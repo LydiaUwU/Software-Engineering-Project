@@ -11,3 +11,11 @@ we plan on writing the UI in React.
 ### Fonts
 - Inter, Rasmus Andersson
 - Karrik, Jean-Baptiste Morizot
+
+## Design Priorities
+- Clean readable design
+- Intuitive layout
+- Accessibility (will work on colour schemes soon)
+- Make it not look like every other website in existence (I do not like bootstrap.js)
+- Brutalist design
+
