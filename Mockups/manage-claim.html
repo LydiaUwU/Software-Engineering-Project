@@ -36,27 +36,56 @@
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Page Contents |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- TODO: Create basic table and button elements -->
         <div id="foreground">
-            <h1>Manage Instructor Payments</h1>
+            <h1>Manage Claim for John Doe</h1>
 
-            <p>Viewing claims from 01/02/2021 to 28/02/2021.</p>
+            <p>Claim submitted on 26/02/2021</p>
 
-            <!-- TODO: Create generic instructor div which links to a new page for reviewing pay claims -->
-            <div id="instructor">
-                <table id="instructors">
-                    <!-- TODO: Make table interactive/sortable -->
-                    <tr>
-                        <th>Name</th>
-                        <th>Level</th>
-                    </tr>
-                    <tr onclick="window.location='manage-claim.html';">
-                        <td>John Doe</td>
-                        <td>UG</td>
-                    </tr>
-                    <tr onclick="window.location='manage-claim.html';">
-                        <td>Mary Sue</td>
-                        <td>PG</td>
-                    </tr>
-                </table>
+            <p>Claim status: <span class="stat-sub">Submitted</span></p>
+
+            <!-- Claim Format -->
+            <!-- TODO: Monospace font for course codes -->
+            <div class="claim">
+                <p>CSU11021 Thursday 18/02/2021 14:00 Lab 2 Hours </p>
+
+                <div class="claim-buttons">
+                    <div class="claim-edit">
+                        <p>Edit</p>
+                    </div>
+                    <div class="claim-reject">
+                        <p>Reject</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="claim">
+                <p>CSU11021 Friday 19/02/2021 10:00 Marking 1 Hour</p>
+
+                <div class="claim-buttons">
+                    <div class="claim-edit">
+                        <p>Edit</p>
+                    </div>
+                    <div class="claim-reject">
+                        <p>Reject</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="claim">
+                <p>CSU11021 Thursday 26/02/2021 14:00 Lab 3 Hours</p>
+
+                <div class="claim-buttons">
+                    <div class="claim-edit">
+                        <p>Edit</p>
+                    </div>
+                    <div class="claim-reject">
+                        <p>Reject</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit and Download Claims -->
+            <div id="claim-dl">
+                <p>Download Completed Claim</p>
             </div>
         </div>
 
