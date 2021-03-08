@@ -1,0 +1,65 @@
+<!-- Thanks for checking out the source! This HTML was written by Lydia MacBride -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Hello World!</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Font Imports! |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- Inter -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+        <!-- Karrik -->
+        <!-- TODO: Create basic logo concept. -->
+        <link href="fonts/karrik/karrik.css" rel="stylesheet">
+    </head>
+    <body>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Navigation Bar |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div id="navbar">
+            <h1>Logo-Here</h1>
+            <div id="nav-links">
+                <ul class="nav-ul">
+                    <li class="nav-li"><a href="index.html" class="nav-link">Home</a> </li>
+                    <li class="nav-li"><a href="instructor.html" class="nav-link">Instructor</a></li>
+                    <li class="nav-li"><a href="admin.html" class="nav-link-act">Admin</a></li> <!-- Current Page! -->
+                    <li class="nav-li"><a href="index.html" class="nav-link">Help</a></li>
+                </ul>
+            </div>
+            <div id="nav-user">
+                <!-- TODO: Login page -->
+                <a href="index.html" class="nav-link">Admin</a>
+            </div>
+        </div>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Page Contents |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TODO: Create basic table and button elements -->
+        <div id="foreground">
+            <h1>Manage Instructor Payments</h1>
+
+            <p>Viewing claims from 01/02/2021 to 28/02/2021.</p>
+
+            <!-- TODO: Create generic instructor div which links to a new page for reviewing pay claims -->
+            <div id="instructor">
+                <table id="instructors">
+                    <!-- TODO: Make table interactive/sortable -->
+                    <tr>
+                        <th>Name</th>
+                        <th>Level</th>
+                    </tr>
+                    <tr onclick="window.location='manage-claim.html';">
+                        <td>John Doe</td>
+                        <td>UG</td>
+                    </tr>
+                    <tr onclick="window.location='manage-claim.html';">
+                        <td>Mary Sue</td>
+                        <td>PG</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- TODO: Create footer div and populate it. -->
+    </body>
+</html>

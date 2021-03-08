@@ -1,0 +1,21 @@
+/* Thanks for checking out the source! This CSS was written by Lydia MacBride */
+
+@font-face {
+    font-family: 'karrik';
+    src: url('WOFF2/Karrik-Regular.woff2') format('woff2'),
+    url('WOFF/Karrik-Regular.woff') format('woff'),
+    url('TFF/Karrik-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bluu';
+    src: url('WOFF2/Karrik-Italic.woff2') format('woff2'),
+    url('WOFF/Karrik-Italic.woff') format('woff'),
+    url('TFF/Karrik-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+
+}
+
