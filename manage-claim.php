@@ -1,0 +1,94 @@
+<!-- Thanks for checking out the source! This HTML was written by Lydia MacBride -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Hello World!</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Font Imports! |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- Inter -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+        <!-- Karrik -->
+        <!-- TODO: Create basic logo concept. -->
+        <link href="fonts/karrik/karrik.css" rel="stylesheet">
+    </head>
+    <body>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Navigation Bar |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div id="navbar">
+            <h1>Logo-Here</h1>
+            <div id="nav-links">
+                <ul class="nav-ul">
+                    <li class="nav-li"><a href="index.html" class="nav-link">Home</a> </li>
+                    <li class="nav-li"><a href="instructor.html" class="nav-link">Instructor</a></li>
+                    <li class="nav-li"><a href="admin.html" class="nav-link-act">Admin</a></li> <!-- Current Page! -->
+                    <li class="nav-li"><a href="index.html" class="nav-link">Help</a></li>
+                </ul>
+            </div>
+            <div id="nav-user">
+                <!-- TODO: Login page -->
+                <a href="index.html" class="nav-link">Admin</a>
+            </div>
+        </div>
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Page Contents |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- TODO: Create basic table and button elements -->
+        <div id="foreground">
+            <h1>Manage Claim for John Doe</h1>
+
+            <p>Claim submitted on 26/02/2021</p>
+
+            <p>Claim status: <span class="stat-sub">Submitted</span></p>
+
+            <!-- Claim Format -->
+            <!-- TODO: Monospace font for course codes -->
+            <div class="claim">
+                <p>CSU11021 Thursday 18/02/2021 14:00 Lab 2 Hours </p>
+
+                <div class="claim-buttons">
+                    <div class="claim-edit">
+                        <p>Edit</p>
+                    </div>
+                    <div class="claim-reject">
+                        <p>Reject</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="claim">
+                <p>CSU11021 Friday 19/02/2021 10:00 Marking 1 Hour</p>
+
+                <div class="claim-buttons">
+                    <div class="claim-edit">
+                        <p>Edit</p>
+                    </div>
+                    <div class="claim-reject">
+                        <p>Reject</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="claim">
+                <p>CSU11021 Thursday 26/02/2021 14:00 Lab 3 Hours</p>
+
+                <div class="claim-buttons">
+                    <div class="claim-edit">
+                        <p>Edit</p>
+                    </div>
+                    <div class="claim-reject">
+                        <p>Reject</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit and Download Claims -->
+            <div id="claim-dl">
+                <p>Download Completed Claim</p>
+            </div>
+        </div>
+
+        <!-- TODO: Create footer div and populate it. -->
+    </body>
+</html>
