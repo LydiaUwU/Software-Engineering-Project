@@ -21,15 +21,15 @@
             <h1>Logo-Here</h1>
             <div id="nav-links">
                 <ul class="nav-ul">
-                    <li class="nav-li"><a href="index.html" class="nav-link">Home</a> </li>
-                    <li class="nav-li"><a href="instructor.html" class="nav-link-act">Instructor</a></li> <!-- Current Page! -->
-                    <li class="nav-li"><a href="admin.html" class="nav-link">Admin</a></li>
-                    <li class="nav-li"><a href="index.html" class="nav-link">Help</a></li>
+                    <li class="nav-li"><a href="index.php" class="nav-link">Home</a> </li>
+                    <li class="nav-li"><a href="instructor.php" class="nav-link-act">Instructor</a></li> <!-- Current Page! -->
+                    <li class="nav-li"><a href="admin.php" class="nav-link">Admin</a></li>
+                    <li class="nav-li"><a href="index.php" class="nav-link">Help</a></li>
                 </ul>
             </div>
             <div id="nav-user">
                 <!-- TODO: Login page -->
-                <a href="index.html" class="nav-link">John Doe</a>
+                <a href="index.php" class="nav-link">John Doe</a>
             </div>
         </div>
 
@@ -39,9 +39,9 @@
             <h1>Welcome John Doe</h1>
 
             <ul>
-                <li><a href="instructor.html">Update personal information</a></li>
-                <li><a href="instructor.html">Log Activity</a></li>
-                <li><a href="instructor.html">View Claims</a></li>
+                <li><a href="instructor.php">Update personal information</a></li>
+                <li><a href="instructor.php">Log Activity</a></li>
+                <li><a href="instructor.php">View Claims</a></li>
             </ul>
         </div>
 
