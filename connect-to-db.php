@@ -1,4 +1,8 @@
 <?php
+    // This PHP was written by Devin O'Keefe
+
+    // Connect to locally hosted database
+
     $DATABASE_HOST = 'localhost';
     $DATABASE_USER = 'root';
     $DATABASE_PASS = '';

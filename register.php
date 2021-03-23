@@ -1,4 +1,4 @@
-<!-- Thanks for checking out the source! This HTML was written by Lydia MacBride and Devin O'Keefe. PHP was written by Devin O'Keefe. -->
+<!-- Thanks for checking out the source! This HTML was written by Lydia MacBride. PHP was written by Devin O'Keefe. -->
 
 <?php
     session_start();
@@ -64,16 +64,19 @@
         }
     }
 
+    // Check form is completed by making sure all fields are set
     function formIsCompleted ($name, $email, $password, $conPassword, $admin) {
         if (ISSET($name) AND ISSET($email) AND ISSET($password) AND ISSET($conPassword) AND ISSET($admin)) return true;
         return false;
     }
 
+    // Check email is valid
     function emailIsValid($email) {
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) return true;
         return false;
     }
 
+    // Make sure this email has not already been taken
     function emailNotTaken ($email, $con) {
         $sqlQuery = "SELECT id FROM accounts WHERE email_ad = ?";
         $stmt = $con->prepare($sqlQuery);
@@ -85,11 +88,13 @@
         return false;
     }
 
+    // Check that the number doesn't contain numbers or invalid characters
     function nameIsValid ($name) {
         if (preg_match("/^([a-zA-Z' ]+)$/", $name)) return true;
         return false;
     }
 
+    // Make sure that both passwords match
     function passwordsMatch ($pass, $conPass) {
         if ($pass == $conPass) return true;
         return false;

@@ -1,4 +1,18 @@
-<!-- Thanks for checking out the source! This HTML was written by Lydia MacBride -->
+<!-- Thanks for checking out the source! This HTML was written by Lydia MacBride. PHP was written by Devin O'Keefe-->
+
+<?php
+
+    session_start();
+    include("ConnectToDb.php");
+
+    function changePage($pageName) {
+        header("location: " . $pageName);
+    }
+
+    if (!ISSET($_SESSION["id"])) {
+        changePage("login.php");
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,22 +35,26 @@
             <h1>Logo-Here</h1>
             <div id="nav-links">
                 <ul class="nav-ul">
-                    <li class="nav-li"><a href="index.html" class="nav-link">Home</a> </li>
-                    <li class="nav-li"><a href="instructor.html" class="nav-link-act">Instructor</a></li> <!-- Current Page! -->
-                    <li class="nav-li"><a href="admin.html" class="nav-link">Admin</a></li>
-                    <li class="nav-li"><a href="index.html" class="nav-link">Help</a></li>
+                    <li class="nav-li"><a href="index.php" class="nav-link">Home</a> </li>
+                    <li class="nav-li"><a href="instructor.php" class="nav-link-act">Instructor</a></li> <!-- Current Page! -->
+                    <li class="nav-li"><a href="admin.php" class="nav-link">Admin</a></li>
+                    <li class="nav-li"><a href="index.php" class="nav-link">Help</a></li>
                 </ul>
             </div>
             <div id="nav-user">
                 <!-- TODO: Login page -->
-                <a href="index.html" class="nav-link">John Doe</a>
+                <a href="index.html" class="nav-link">
+                    <?php echo $_SESSION["name"]; ?>
+                </a>
             </div>
         </div>
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Page Contents |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- TODO: Create basic table and button elements -->
         <div id="foreground">
-            <h1>Welcome John Doe</h1>
+            <h1>
+                Welcome <?php echo $_SESSION["name"]; ?>
+            </h1>
 
             <ul>
                 <li><a href="instructor.html">Update personal information</a></li>
