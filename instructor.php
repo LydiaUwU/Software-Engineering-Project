@@ -46,6 +46,8 @@
                 <a href="index.html" class="nav-link">
                     <?php echo $_SESSION["name"]; ?>
                 </a>
+=======
+                <a href="index.php" class="nav-link">John Doe</a>
             </div>
         </div>
 
@@ -57,9 +59,9 @@
             </h1>
 
             <ul>
-                <li><a href="instructor.html">Update personal information</a></li>
-                <li><a href="instructor.html">Log Activity</a></li>
-                <li><a href="instructor.html">View Claims</a></li>
+                <li><a href="instructor.php">Update personal information</a></li>
+                <li><a href="instructor.php">Log Activity</a></li>
+                <li><a href="instructor.php">View Claims</a></li>
             </ul>
         </div>
 

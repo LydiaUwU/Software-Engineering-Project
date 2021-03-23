@@ -37,15 +37,15 @@
             <h1>Logo-Here</h1>
             <div id="nav-links">
                 <ul class="nav-ul">
-                    <li class="nav-li"><a href="index.html" class="nav-link">Home</a> </li>
-                    <li class="nav-li"><a href="instructor.html" class="nav-link">Instructor</a></li>
-                    <li class="nav-li"><a href="admin.html" class="nav-link-act">Admin</a></li> <!-- Current Page! -->
-                    <li class="nav-li"><a href="index.html" class="nav-link">Help</a></li>
+                    <li class="nav-li"><a href="index.php" class="nav-link">Home</a> </li>
+                    <li class="nav-li"><a href="instructor.php" class="nav-link">Instructor</a></li>
+                    <li class="nav-li"><a href="admin.php" class="nav-link-act">Admin</a></li> <!-- Current Page! -->
+                    <li class="nav-li"><a href="index.php" class="nav-link">Help</a></li>
                 </ul>
             </div>
             <div id="nav-user">
                 <!-- TODO: Login page -->
-                <a href="index.html" class="nav-link">Admin</a>
+                <a href="index.php" class="nav-link">Admin</a>
             </div>
         </div>
 
@@ -55,9 +55,9 @@
             <h1>Admin Control Center</h1>
 
             <ul>
-                <li><a href="manage-inst.html">Manage Demonstrators</a></li>
-                <li><a href="manage-inst.html">View Claims</a></li>
-                <li><a href="admin.html">Process Logged Claims</a></li>
+                <li><a href="manage-inst.php">Manage Demonstrators</a></li>
+                <li><a href="manage-inst.php">View Claims</a></li>
+                <li><a href="admin.php">Process Logged Claims</a></li>
             </ul>
 
             <h2>Modules</h2>
