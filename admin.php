@@ -45,7 +45,7 @@
             </div>
             <div id="nav-user">
                 <!-- TODO: Login page -->
-                <a href="index.php" class="nav-link">Admin</a>
+                <a href="login.php" class="nav-link">Admin</a>
             </div>
         </div>
 

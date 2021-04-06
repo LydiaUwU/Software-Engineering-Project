@@ -120,27 +120,19 @@
     </head>
     <body>
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Navigation Bar |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <div id="navbar">
-            <h1>Logo-Here</h1>
-            <div id="nav-links">
-                <ul class="nav-ul">
-                    <li class="nav-li"><a href="index.php" class="nav-link-act">Home</a> </li> <!-- Current Page! -->
-                    <li class="nav-li"><a href="instructor.php" class="nav-link">Instructor</a></li>
-                    <li class="nav-li"><a href="admin.php" class="nav-link">Admin</a></li>
-                    <li class="nav-li"><a href="index.php" class="nav-link">Help</a></li>
-                </ul>
-            </div>
+        <div id="navbar" type="login">
+            <h1><a href="index.php" id="nav-logo">Logo-Here</a></h1>
             <div id="nav-user">
                 <!-- TODO: Login page -->
                 <!-- TODO: Text above username saying "logged in as"/"welcome"-->
-                <a href="index.html" class="nav-link">Login</a>
+                <a href="index.html" class="nav-link-act">Login</a>
             </div>
         </div>
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Page Contents |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- TODO: Create basic table and button elements -->
-        <div id="foreground">
-            <h1>Register your account</h1>
+        <div id="foreground" type="login">
+            <h1>Register a new account</h1>
 
             <?php
                 if (!EMPTY($errorMessage)) {
@@ -151,32 +143,30 @@
             <form action="#" method="POST">
                 
                 <div>
-                    <label for="name">Name</label>
-                    <input id="name" name="name" type="text" placeholder="Enter your name..." required />
+                    <input id="name" name="name" type="text" placeholder="Enter your name..." class="login-field" required />
                 </div>
                 
                 <div>
-                    <label for="email">Email</label>
-                    <input id="email" name="email" type="text" placeholder="Enter your email..." required />
+                    <input id="email" name="email" type="text" placeholder="Enter your email..." class="login-field" required />
                 </div>
                 
                 <div>
-                    <label for="password">Password</label>
-                    <input id="password" name="password" type="password" placeholder="Enter a password..." required />
+                    <input id="password" name="password" type="password" placeholder="Enter a password..." class="login-field" required />
                 </div>
 
                 <div>
-                    <label for="confirmPassword">Confirm password</label>
-                    <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm password..." required />
+                    <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm password..." class="login-field" required />
                 </div>
-                
-                <div> 
-                    <label for="admin">Are you an admin?</label>
+
+                <!-- TODO: Remove this for final build
+                <div class="login-admin-check">
+                    <label for="admin" class="field-label">Are you an admin?</label>
                     <input type="hidden" id="admin" name="admin" value=0 />
-                    <input type="checkbox" id="admin" name="admin" value=1>
+                    <input type="checkbox" id="admin" name="admin" value=1 class="login-checkbox">
                 </div>
+                -->
 
-                <button type="submit">Register</button> 
+                <button type="submit" class="login-submit">Register</button>
         
                 <div>
                     <p>Already have an account? <a href="login.php">Login here!</a></p>
