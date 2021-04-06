@@ -2,7 +2,7 @@
 
 <?php
     session_start();
-    include("ConnectToDb.php");
+    include("connect-to-db.php");
 
     // Declare constants
     define("NO_ACCOUNT", "Unfortunately no account exists for this email address.");
@@ -15,7 +15,7 @@
         $email = $_POST["email"];
         $inputPassword = $_POST["password"];
 
-        $sqlQuery = "SELECT id, name, password FROM accounts WHERE email_ad = ?"; // SQL Query to get id, name, and password for account from db.
+        $sqlQuery = "SELECT id, name, password, is_admin FROM accounts WHERE email_ad = ?"; // SQL Query to get id, name, and password for account from db.
 
         $stmt = $con->prepare($sqlQuery); // Prepared statement for SQL Query
         $stmt->bind_param("s", $email);
@@ -23,7 +23,7 @@
         $stmt->store_result();
 
         if ($stmt->num_rows > 0) { // Check account actually exists for this email address
-            $stmt->bind_result($id, $name, $accountPassword); // Set variables id, name, and accountPassword to the three variables returned by SQL.
+            $stmt->bind_result($id, $name, $accountPassword, $isAdmin); // Set variables id, name, and accountPassword to the three variables returned by SQL.
             $stmt->fetch();
 
             if (password_verify($inputPassword, $accountPassword)) { // Verify that the passwords match
@@ -31,7 +31,12 @@
                 session_regenerate_id();
                 $_SESSION["id"] = $id;
                 $_SESSION["name"] = $name;
-                header("Location: instructor.php");                
+
+                $redirectURL = "Location: ";
+                if ($isAdmin) $redirectURL .= "admin.php";
+                else $redirectURL .= "instructor.php";
+            
+                header($redirectURL);
             }
 
             else {

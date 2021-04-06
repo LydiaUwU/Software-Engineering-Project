@@ -2,7 +2,7 @@
 
 <?php
     session_start();
-    include("ConnectToDb.php");
+    include("connect-to-db.php");
 
     // Declare constants
     define("FORM_INCOMPLETE", "Unfortunately the form is not complete.");

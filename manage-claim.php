@@ -13,40 +13,8 @@
         changePage("index.php");
     }
 
+    include("header.php");
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Hello World!</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="style.css">
-
-        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Font Imports! |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <!-- Inter -->
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-        <!-- Karrik -->
-        <!-- TODO: Create basic logo concept. -->
-        <link href="fonts/karrik/karrik.css" rel="stylesheet">
-    </head>
-    <body>
-        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Navigation Bar |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <div id="navbar">
-            <h1>Logo-Here</h1>
-            <div id="nav-links">
-                <ul class="nav-ul">
-                    <li class="nav-li"><a href="index.html" class="nav-link">Home</a> </li>
-                    <li class="nav-li"><a href="instructor.html" class="nav-link">Instructor</a></li>
-                    <li class="nav-li"><a href="admin.html" class="nav-link-act">Admin</a></li> <!-- Current Page! -->
-                    <li class="nav-li"><a href="index.html" class="nav-link">Help</a></li>
-                </ul>
-            </div>
-            <div id="nav-user">
-                <!-- TODO: Login page -->
-                <a href="index.html" class="nav-link">Admin</a>
-            </div>
-        </div>
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Page Contents |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- TODO: Create basic table and button elements -->
