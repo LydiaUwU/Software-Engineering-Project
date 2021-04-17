@@ -94,7 +94,7 @@
         <!-- TODO: Create footer div and populate it. -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-        <script src="reject-claim.js?ver=123"></script>
+        <script src="reject-claim.js"></script>
     </body>
 </html>
 
