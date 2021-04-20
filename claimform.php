@@ -1,540 +1,287 @@
-<html>
-	<head>
-		<style>
-			body {
-				font-family:sans-serif;
-			}
-			h1, h2, h3, p {
-				text-align:center;
-			}
-			table, tr, td {
-				border:2px solid black;
-				border-collapse: collapse;
-				margin:0;
-			}
-			table {
-				width:100%;
-			}
-			td {
-				padding:10px;
-			}
-			.formLabel {
-				background-color:lightblue;
-			}
-			.formInput {
-				background-color:lightyellow;
-			}
-			.formOfficial {
-				background-color:grey;
-			}
-		</style>
-	</head>
-	<body>
-		<h1>Trinity College Dublin - Human Resources Division</h1>
-		<h1>Claim Form for -UG- Demonstration (Maximum-22 hours per semester)</h1>
+<?php
 
-		<h2>Section A</h2>
+// import TCPDF
+require_once('libraries/tcpdf_min/tcpdf.php'); // point this to tcpdf location - get it from https://github.com/tecnickcom/tcpdf
 
-		<h3 style="color:red">It is important to complete all sections of this form, otherwise you may receive incorrect or no payment.</h3>
+// create PDF document
+$pdf = new TCPDF('P', PDF_UNIT, 'A4', true, 'UTF-8', false);
+$pdf->SetCreator(PDF_CREATOR);
+$pdf->SetAuthor('Trinity College Dublin - Human Resources Division');
+$pdf->SetTitle('Claim Form for Undergraduate Demonstration');
+$pdf->SetPrintHeader(false);
+$pdf->SetPrintFooter(false);
+$pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+$pdf->SetMargins(5, 5, 5);
+$pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
 
-		<table>
-			<tr>
-				<td class="formLabel">Please tick the relevant payroll category to you:</td>
-				<td class="formInput" colspan="7">
-					<input type="checkbox" name="payrollWeekly" id="payrollWeekly"><label for="payrollWeekly">Weekly</label>
-					<input type="checkbox" name="payrollMonthly" id="payrollMonthly"><label for="payrollMonthly">Monthly</label>
-					<input type="checkbox" name="payrollCasual" id="payrollCasual"><label for="payrollCasual">Casual</label>
-					<input type="checkbox" name="payrollFirst" id="payrollFirst"><label for="payrollFirst">First time to be paid</label>
-				</td>
-			</tr>
-			<tr>
-				<td class="formLabel">Surname:</td>
-                <td class="formInput">
-                    <input type="text" name="surname"/>
-                </td>
-                
-                <td class="formLabel">First Names:</td>
-                <td class="formInput">
-                    <input type="text" name="first_name"/>
-                </td>
-				<td class="formLabel">PPS No:</td>
-                <td class="formInput">
-                    <input type="text" name="pps_num"/>
-                </td>
-				
-                <td class="formLabel">Staff No:</td>
-                <td class="formInput">
-                    <input type="text" name="staff_num"/>
-                </td>
-			</tr>
-		</table>
+$pdf->AddPage();
+$pdf->SetFont('helvetica','', 10);
 
-		<h2>Section B</h2> <p>(Please complete this section <strong>only if it is your first claim in the current academic year</strong> or the information required has changed since your last claim in the current academic year.)</p>
+$html = <<<EOF
+    <style>
+        h1, h2, h3, p {
+            text-align:center;
+        }
+        table, tr, td {
+            border:2px solid black;
+            border-collapse: collapse;
+            margin:0;
+        }
+        table {
+            width:100%;
+        }
+        td {
+            padding:10px;
+        }
+        .formLabel {
+            background-color:lightblue;
+        }
+        .formInput {
+            background-color:lightyellow;
+        }
+        .formOfficial {
+            background-color:grey;
+        }
+    </style>
 
-		<table>
-			<tr>
-				<td class="formLabel">Home Address:</td>
-                <td class="formInput">
-                    <input type="text" name="home_address"/>
-                </td>
-			</tr>
-			<tr>
-				<td class="formLabel">Address to send Pay Advice (if different):</td>
-                <td class="formInput">
-                    <input type="text" name="pay_advice"/>
-                </td>
-			</tr>
-		</table>
+    <h1>Trinity College Dublin - Human Resources Division</h1>
+    <h1>Claim Form for -UG- Demonstration (Maximum-22 hours per semester)</h1>
 
-		<p>(Payment will be made directly to your bank account so please provide the following information)</p>
+    <h2>Section A</h2>
 
-		<table>
-			<tr>
-				<td class="formLabel">Bank Name:</td>
-                <td class="formInput">
-                    <input type="text" name="bank_name"/>
-                </td>
-                
-                <td class="formLabel">Bank Address:</td>
-                <td class="formInput">
-                    <input type="text" name="bank_address"/>
-                </td>
-                
-                <td class="formLabel">Account Name:</td>
-                <td class="formInput">
-                    <input type="text" name="account_name"/>
-                </td>
-            
-                </tr>
-			<tr>
-				<td class="formLabel">Account No:</td>
-                <td class="formInput">
-                    <input type="text" name="account_num"/>
-                </td>
-                
-                <td class="formLabel">Bank Sort Code:</td>
-                <td class="formInput">
-                    <input type="text" name="bank_sort_code"/>
-                </td>
-                
-                <td class="formLabel">Dept/School where work was performed:</td>
-                <td>School of Computer Science and Statistics</td>
-			</tr>
-			<tr>
-				<td class="formLabel">IBAN No. <br> <small>(SEPA Requirement)</small></td>
-                <td class="formInput" colspan="3">
-                    <input type="text" name="iban_num"/>
-                </td>
-                
-                <td class="formLabel">Swift/BIC Address<br> <small>(SEPA Requirement)</small></td>
-                <td class="formInput">
-                    <input type="text" name="bic_address"/>
-                </td>
-            
-                </tr>
-			<tr>
-				<td class="formLabel" colspan="4">Are you in receipt of any other payments from Trinity College? (If yes, please specify)</td>
-                <td class="formInput" colspan="2">
-                    <input type="checkbox" name="receiving_payments"/>
-                </td>
-            
-                </tr>
-			<tr>
-				<td class="formLabel" colspan="4">If you are employed in the Public Sector paying modified PRSI (i.e. Class B, C, D or H), please tick this box:</td>
-                <td class="formInput" colspan="2">
-                    <input type="checkbox" name="in_public_sector"/>
-                </td>
-            
-                </tr>
-		</table>
+    <h3 style="color:red">It is important to complete all sections of this form, otherwise you may receive incorrect or no payment.</h3>
 
-		<h2>Section C</h2>
-		<h3>Periods Worked for which Payment is being Claimed</h3>
-		<p>(To be completed by person making the claim) This form should be completed for periods up to Friday of each week and up to the last Friday of the month in which work was performed, unless work ceased earlier.</p>
+    <table>
+        <tr>
+            <td class="formLabel">Please tick the relevant payroll category to you:</td>
+            <td class="formInput" colspan="7">
+                <input type="checkbox" name="payrollWeekly" id="payrollWeekly" />Weekly
+                <input type="checkbox" checked="checked" name="payrollMonthly" id="payrollMonthly" />Monthly
+                <input type="checkbox" name="payrollCasual" id="payrollCasual" />Casual
+                <input type="checkbox" name="payrollFirst" id="payrollFirst" />First time to be paid
+            </td>
+        </tr>
+        <tr>
+            <td class="formLabel">Surname:</td>
+            <td class="formInput"><!--SURNAME--></td>
+            <td class="formLabel">First Names:</td>
+            <td class="formInput"><!--FIRST NAMES--></td>
+            <td class="formLabel">PPS No:</td>
+            <td class="formInput"><!--PPS NO--></td>
+            <td class="formLabel">Staff No:</td>
+            <td class="formInput"><!--STAFF NO--></td>
+        </tr>
+    </table>
 
-		<table>
-			<tr>
-				<td class="formLabel" colspan="13">Periods for which work is being claimed <small>(to be completed by person making the claim)</small></td>
-				<td class="formOfficial" colspan="2">Official Use Only</td>
-			</tr>
-			<tr>
-				<td class="formLabel">Course Title:</td>
-                <td class="formInput" colspan="3">
-                    <input type="text" name="course_title"/>
-                </td>
-                
-                <td class="formLabel" colspan="3">Course Module:</td>
-                <td class="formInput" colspan="3">
-                    <input type="text" name="course_module"/>
-                </td>
-                
-                <td class="formLabel">Signature of Course Director/Lecturer:</td>
-                <td class="formInput" colspan="2">
-                    <input type="text" name="signature"/>
-                </td>
-                
-                <td class="formOfficial" colspan="2"></td>
-			</tr>
-			<tr>
-				<td class="formLabel" colspan="4">Course Module Name:</td>
-                <td class="formLabel" colspan="6">
-                    <input type="text" name="course_module_name"/>
-                </td>
-                
-                <td class="formLabel" rowspan="2">Total Hours/Items</td>
-				<td class="formLabel" colspan="2">Faculty/School</td>
-				<td class="formOfficial" colspan="2">Salaries & Wages Office</td>
-			</tr>
-			<tr>
-				<td class="formLabel">Period Worked</td>
-				<td class="formLabel">Select Date</td>
-				<td class="formLabel">Sat</td>
-				<td class="formLabel">Sun</td>
-				<td class="formLabel">Mon</td>
-				<td class="formLabel">Tues</td>
-				<td class="formLabel">Wed</td>
-				<td class="formLabel">Thur</td>
-				<td class="formLabel">Fri</td>
-				<td class="formLabel">Description of Work</td>
-				<td class="formLabel">Hourly Rate etc. (if applicable)</td>
-				<td class="formLabel">Gross Pay Euro</td>
-				<td class="formOfficial">PRSI Class</td>
-				<td class="formOfficial">Comments/Calculations</td>
-			</tr>
-			<tr>
-				<td class="formLabel">Week Ended:</td>
-                <td class="formInput">
-                    <!--WEEK ENDED 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--SATURDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--SUNDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--MONDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--TUESDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--WEDNESDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--THURSDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--FRIDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--DESCRIPTION OF WORK 1-->
-                </td>
-                <td>
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--TOTAL HOURS 1-->
-                </td>
-                <td>
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--HOURLY RATE 1--></td>
-                <td>
-                <td class="formOfficial">
-                    <!--GROSS PAY 1-->
-                </td>
-                <td class="formOfficial">
-                    <!--PRSI CLASS 1-->
-                </td>
-                <td class="formOfficial">
-                    <!--COMMENTS 1-->
-                </td>
-			</tr>
-			<tr>
-				<td class="formLabel">Week Ended:</td>
-                <td class="formInput">
+    <h2>Section B</h2> <p>(Please complete this section <strong>only if it is your first claim in the current academic year</strong> or the information required has changed since your last claim in the current academic year.)</p>
 
-                    <!--WEEK ENDED 2-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--SATURDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--SUNDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--MONDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--TUESDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--WEDNESDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--THURSDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--FRIDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--DESCRIPTION OF WORK 1-->
-                </td>
-                <td>
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--TOTAL HOURS 1-->
-                </td>
-                <td>
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--HOURLY RATE 1--></td>
-                </td>
-                <td>
+    <table>
+        <tr>
+            <td class="formLabel">Home Address:</td>
+            <td class="formInput"><!--HOME ADDRESS--></td>
+        </tr>
+        <tr>
+            <td class="formLabel">Address to send Pay Advice (if different):</td>
+            <td class="formInput"><!--PAY ADVICE ADDRESS?--></td>
+        </tr>
+    </table>
 
-                    <!--GROSS PAY 2-->
-                </td>
-                <td class="formOfficial">
+    <p>(Payment will be made directly to your bank account so please provide the following information)</p>
 
-                    <!--PRSI CLASS 2-->
-                </td>
-                <td class="formOfficial">
+    <table>
+        <tr>
+            <td class="formLabel">Bank Name:</td>
+            <td class="formInput"><!--BANK NAME--></td>
+            <td class="formLabel">Bank Address:</td>
+            <td class="formInput"><!--BANK ADDRESS--></td>
+            <td class="formLabel">Account Name:</td>
+            <td class="formInput"><!--ACCOUNT NAME--></td>
+        </tr>
+        <tr>
+            <td class="formLabel">Account No:</td>
+            <td class="formInput"><!--ACCOUNT NO--></td>
+            <td class="formLabel">Bank Sort Code:</td>
+            <td class="formInput"><!--BANK SORT CODE--></td>
+            <td class="formLabel">Dept/School where work was performed:</td>
+            <td>School of Computer Science and Statistics</td>
+        </tr>
+        <tr>
+            <td class="formLabel">IBAN No. <br> <small>(SEPA Requirement)</small></td>
+            <td class="formInput" colspan="3"><!--IBAN No.--></td>
+            <td class="formLabel">Swift/BIC Address<br> <small>(SEPA Requirement)</small></td>
+            <td class="formInput"><!--BIC ADDRESS--></td>
+        </tr>
+        <tr>
+            <td class="formLabel" colspan="4">Are you in receipt of any other payments from Trinity College? (If yes, please specify)</td>
+            <td class="formInput" colspan="2"><!--OTHER TRINITY PAYMENTS--></td>
+        </tr>
+        <tr>
+            <td class="formLabel" colspan="4">If you are employed in the Public Sector paying modified PRSI (i.e. Class B, C, D or H), please tick this box:</td>
+            <td class="formInput" colspan="2"><input type="checkbox" name="publicSector"></td>
+        </tr>
+    </table>
 
-                    <!--COMMENTS 2-->
-                </td>
-			</tr>
-			<tr>
-				<td class="formLabel">Week Ended:</td>
-                <td class="formInput">
+    <h2>Section C</h2>
+    <h3>Periods Worked for which Payment is being Claimed</h3>
+    <p>(To be completed by person making the claim) This form should be completed for periods up to Friday of each week and up to the last Friday of the month in which work was performed, unless work ceased earlier.</p>
 
-                    <!--WEEK ENDED 3-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--SATURDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--SUNDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--MONDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--TUESDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--WEDNESDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--THURSDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--FRIDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--DESCRIPTION OF WORK 1-->
-                </td>
-                <td>
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--TOTAL HOURS 1-->
-                </td>
-                <td>
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--HOURLY RATE 1--></td>
-                </td>
-                <td>
+    <table>
+        <tr>
+            <td class="formLabel" colspan="13">Periods for which work is being claimed <small>(to be completed by person making the claim)</small></td>
+            <td class="formOfficial" colspan="2">Official Use Only</td>
+        </tr>
+        <tr>
+            <td class="formLabel">Course Title:</td>
+            <td class="formInput" colspan="3"><!--COURSE TITLE--></td>
+            <td class="formLabel" colspan="3">Course Module:</td>
+            <td class="formInput" colspan="3"><!--COURSE MODULE--></td>
+            <td class="formLabel">Signature of Course Director/Lecturer:</td>
+            <td class="formInput" colspan="2"><!--COURSE DIRECTOR/LECTURER--></td>
+            <td class="formOfficial" colspan="2"></td>
+        </tr>
+        <tr>
+            <td class="formLabel" colspan="4">Course Module Name:</td>
+            <td class="formLabel" colspan="6"><!--COURSE MODULE NAME--></td>
+            <td class="formLabel" rowspan="2">Total Hours/Items</td>
+            <td class="formLabel" colspan="2">Faculty/School</td>
+            <td class="formOfficial" colspan="2">Salaries & Wages Office</td>
+        </tr>
+        <tr>
+            <td class="formLabel">Period Worked</td>
+            <td class="formLabel">Select Date</td>
+            <td class="formLabel">Sat</td>
+            <td class="formLabel">Sun</td>
+            <td class="formLabel">Mon</td>
+            <td class="formLabel">Tues</td>
+            <td class="formLabel">Wed</td>
+            <td class="formLabel">Thur</td>
+            <td class="formLabel">Fri</td>
+            <td class="formLabel">Description of Work</td>
+            <td class="formLabel">Hourly Rate etc. (if applicable)</td>
+            <td class="formLabel">Gross Pay Euro</td>
+            <td class="formOfficial">PRSI Class</td>
+            <td class="formOfficial">Comments/Calculations</td>
+        </tr>
+        <tr>
+            <td class="formLabel">Week Ended:</td>
+            <td class="formInput"><!--WEEK ENDED 1--></td>
+            <td class="formInput"><!--SATURDAY 1--></td>
+            <td class="formInput"><!--SUNDAY 1--></td>
+            <td class="formInput"><!--MONDAY 1--></td>
+            <td class="formInput"><!--TUESDAY 1--></td>
+            <td class="formInput"><!--WEDNESDAY 1--></td>
+            <td class="formInput"><!--THURSDAY 1--></td>
+            <td class="formInput"><!--FRIDAY 1--></td>
+            <td class="formInput"><!--DESCRIPTION OF WORK 1--></td>
+            <td><!--TOTAL HOURS 1--></td>
+            <td><!--HOURLY RATE 1--></td>
+            <td><!--GROSS PAY 1--></td>
+            <td class="formOfficial"><!--PRSI CLASS 1--></td>
+            <td class="formOfficial"><!--COMMENTS 1--></td>
+        </tr>
+        <tr>
+            <td class="formLabel">Week Ended:</td>
+            <td class="formInput"><!--WEEK ENDED 2--></td>
+            <td class="formInput"><!--SATURDAY 2--></td>
+            <td class="formInput"><!--SUNDAY 2--></td>
+            <td class="formInput"><!--MONDAY 2--></td>
+            <td class="formInput"><!--TUESDAY 2--></td>
+            <td class="formInput"><!--WEDNESDAY 2--></td>
+            <td class="formInput"><!--THURSDAY 2--></td>
+            <td class="formInput"><!--FRIDAY 2--></td>
+            <td class="formInput"><!--DESCRIPTION OF WORK 2--></td>
+            <td><!--TOTAL HOURS 2--></td>
+            <td><!--HOURLY RATE 2--></td>
+            <td><!--GROSS PAY 2--></td>
+            <td class="formOfficial"><!--PRSI CLASS 2--></td>
+            <td class="formOfficial"><!--COMMENTS 2--></td>
+        </tr>
+        <tr>
+            <td class="formLabel">Week Ended:</td>
+            <td class="formInput"><!--WEEK ENDED 3--></td>
+            <td class="formInput"><!--SATURDAY 3--></td>
+            <td class="formInput"><!--SUNDAY 3--></td>
+            <td class="formInput"><!--MONDAY 3--></td>
+            <td class="formInput"><!--TUESDAY 3--></td>
+            <td class="formInput"><!--WEDNESDAY 3--></td>
+            <td class="formInput"><!--THURSDAY 3--></td>
+            <td class="formInput"><!--FRIDAY 3--></td>
+            <td class="formInput"><!--DESCRIPTION OF WORK 3--></td>
+            <td><!--TOTAL HOURS 3--></td>
+            <td><!--HOURLY RATE 3--></td>
+            <td><!--GROSS PAY 3--></td>
+            <td class="formOfficial"><!--PRSI CLASS 3--></td>
+            <td class="formOfficial"><!--COMMENTS 3--></td>
+        </tr>
+        <tr>
+            <td class="formLabel">Week Ended:</td>
+            <td class="formInput"><!--WEEK ENDED 4--></td>
+            <td class="formInput"><!--SATURDAY 4--></td>
+            <td class="formInput"><!--SUNDAY 4--></td>
+            <td class="formInput"><!--MONDAY 4--></td>
+            <td class="formInput"><!--TUESDAY 4--></td>
+            <td class="formInput"><!--WEDNESDAY 4--></td>
+            <td class="formInput"><!--THURSDAY 4--></td>
+            <td class="formInput"><!--FRIDAY 4--></td>
+            <td class="formInput"><!--DESCRIPTION OF WORK 4--></td>
+            <td><!--TOTAL HOURS 4--></td>
+            <td><!--HOURLY RATE 4--></td>
+            <td><!--GROSS PAY 4--></td>
+            <td class="formOfficial"><!--PRSI CLASS 4--></td>
+            <td class="formOfficial"><!--COMMENTS 4--></td>
+        </tr>
+        <tr>
+            <td class="formLabel">Week Ended:</td>
+            <td class="formInput"><!--WEEK ENDED 5--></td>
+            <td class="formInput"><!--SATURDAY 5--></td>
+            <td class="formInput"><!--SUNDAY 5--></td>
+            <td class="formInput"><!--MONDAY 5--></td>
+            <td class="formInput"><!--TUESDAY 5--></td>
+            <td class="formInput"><!--WEDNESDAY 5--></td>
+            <td class="formInput"><!--THURSDAY 5--></td>
+            <td class="formInput"><!--FRIDAY 5--></td>
+            <td class="formInput"><!--DESCRIPTION OF WORK 5--></td>
+            <td><!--TOTAL HOURS 5--></td>
+            <td><!--HOURLY RATE 5--></td>
+            <td><!--GROSS PAY 5--></td>
+            <td class="formOfficial"><!--PRSI CLASS 5--></td>
+            <td class="formOfficial"><!--COMMENTS 5--></td>
+        </tr>
+        <tr>
+            <td class="formLabel" colspan="9"><small><u>NB</u> (Please note the <u>number of hours</u> worked each day, otherwise payment may be delayed)</small></td>
+            <td class="formLabel">Totals</td>
+            <td><!--TOTAL HOURS TOTAL--></td>
+            <td></td>
+            <td><!--GROSS PAY TOTAL--></td>
+            <td class="formOfficial"></td>
+            <td class="formOfficial"></td>
+        </tr>
+    </table>
 
-                    <!--GROSS PAY 3-->
-                </td>
-                <td class="formOfficial">
+    <!--SECTION D GOES HERE, IF WE NEED IT (PROBABLY NOT)-->
+    <br>
 
-                    <!--PRSI CLASS 3-->
-                </td>
-                <td class="formOfficial">
+    <table>
+        <tr>
+            <td class="formLabel">Signature of person seeking payment:</td>
+            <td class="formInput"><!--DEMONSTRATOR NAME--></td>
+            <td class="formLabel">Date:</td>
+            <td class="formInput"><!--DATE--></td>
+            <td class="formLabel">Signature of Head of School/TRI or Project A/C Holder:</td>
+            <td class="formInput"><!--ADMIN NAME--></td>
+            <td class="formLabel">Date:</td>
+            <td class="formInput"><!--DATE--></td>
+        </tr>
+    </table>
+    EOF;
 
-                    <!--COMMENTS 3-->
-                </td>
-			</tr>
-			<tr>
-				<td class="formLabel">Week Ended:</td>
-                <td class="formInput">
+// output the HTML content
+$pdf->writeHTML($html, true, false, true, false, '');
 
-                    <!--WEEK ENDED 4-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--SATURDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--SUNDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--MONDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--TUESDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--WEDNESDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--THURSDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--FRIDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--DESCRIPTION OF WORK 1-->
-                </td>
-                <td>
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--TOTAL HOURS 1-->
-                </td>
-                <td>
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--HOURLY RATE 1--></td>
-                </td>
-                <td>
+// reset pointer to the last page
+$pdf->lastPage();
 
-                    <!--GROSS PAY 4-->
-                </td>
-                <td class="formOfficial">
+// Close and output PDF document
+$pdf->Output('claim-form.pdf', 'I'); // this opens the finished PDF in the browser - user can download if they wish.
 
-                    <!--PRSI CLASS 4-->
-                </td>
-                <td class="formOfficial">
-
-                    <!--COMMENTS 4-->
-                </td>
-			</tr>
-			<tr>
-				<td class="formLabel">Week Ended:</td>
-                <td class="formInput">
-
-                    <!--WEEK ENDED 5-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--SATURDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--SUNDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--MONDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--TUESDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--WEDNESDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--THURSDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--FRIDAY 1-->
-                </td>
-                <td class="formInput">
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--DESCRIPTION OF WORK 1-->
-                </td>
-                <td>
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--TOTAL HOURS 1-->
-                </td>
-                <td>
-                    <input style="width:60px;" type="number" name="saturday_one"/>
-                    <!--HOURLY RATE 1--></td>
-                </td>
-                <td>
-
-                    <!--GROSS PAY 5-->
-                </td>
-                <td class="formOfficial">
-
-                    <!--PRSI CLASS 5-->
-                </td>
-                <td class="formOfficial">
-
-                    <!--COMMENTS 5-->
-                </td>
-			</tr>
-			<tr>
-				<td class="formLabel" colspan="9"><small><u>NB</u> (Please note the <u>number of hours</u> worked each day, otherwise payment may be delayed)</small></td>
-				<td class="formLabel">Totals</td>
-                <td>
-
-                    <!--TOTAL HOURS TOTAL-->
-                </td>
-				<td></td>
-                <td>
-
-                    <!--GROSS PAY TOTAL-->
-                </td>
-				<td class="formOfficial"></td>
-				<td class="formOfficial"></td>
-			</tr>
-		</table>
-
-		<!--SECTION D GOES HERE, IF WE NEED IT (PROBABLY NOT)-->
-		<br>
-
-		<table>
-			<tr>
-				<td class="formLabel">Signature of person seeking payment:</td>
-                <td class="formInput">
-
-                    <!--DEMONSTRATOR NAME-->
-                </td>
-				<td class="formLabel">Date:</td>
-                <td class="formInput">
-
-                    <!--DATE-->
-                </td>
-				<td class="formLabel">Signature of Head of School/TRI or Project A/C Holder:</td>
-                <td class="formInput">
-
-                    <!--ADMIN NAME-->
-                </td>
-				<td class="formLabel">Date:</td>
-                <td class="formInput">
-
-                    <!--DATE-->
-                </td>
-			</tr>
-		</table>
-	</body>
-</html>
+?>
