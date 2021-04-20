@@ -2,7 +2,7 @@
 
 <?php
     session_start();
-    include("ConnectToDb.php");
+    include("connect-to-db.php");
 
     // Declare constants
     define("NO_ACCOUNT", "Unfortunately no account exists for this email address.");
@@ -15,7 +15,7 @@
         $email = $_POST["email"];
         $inputPassword = $_POST["password"];
 
-        $sqlQuery = "SELECT id, name, password FROM accounts WHERE email_ad = ?"; // SQL Query to get id, name, and password for account from db.
+        $sqlQuery = "SELECT id, name, password, is_admin FROM accounts WHERE email_ad = ?"; // SQL Query to get id, name, and password for account from db.
 
         $stmt = $con->prepare($sqlQuery); // Prepared statement for SQL Query
         $stmt->bind_param("s", $email);
@@ -23,7 +23,7 @@
         $stmt->store_result();
 
         if ($stmt->num_rows > 0) { // Check account actually exists for this email address
-            $stmt->bind_result($id, $name, $accountPassword); // Set variables id, name, and accountPassword to the three variables returned by SQL.
+            $stmt->bind_result($id, $name, $accountPassword, $isAdmin); // Set variables id, name, and accountPassword to the three variables returned by SQL.
             $stmt->fetch();
 
             if (password_verify($inputPassword, $accountPassword)) { // Verify that the passwords match
@@ -31,7 +31,12 @@
                 session_regenerate_id();
                 $_SESSION["id"] = $id;
                 $_SESSION["name"] = $name;
-                header("Location: instructor.php");                
+
+                $redirectURL = "Location: ";
+                if ($isAdmin) $redirectURL .= "admin.php";
+                else $redirectURL .= "instructor.php";
+            
+                header($redirectURL);
             }
 
             else {
@@ -62,26 +67,18 @@
     </head>
     <body>
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Navigation Bar |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <div id="navbar">
-            <h1>Logo-Here</h1>
-            <div id="nav-links">
-                <ul class="nav-ul">
-                    <li class="nav-li"><a href="index.php" class="nav-link-act">Home</a> </li> <!-- Current Page! -->
-                    <li class="nav-li"><a href="instructor.php" class="nav-link">Instructor</a></li>
-                    <li class="nav-li"><a href="admin.php" class="nav-link">Admin</a></li>
-                    <li class="nav-li"><a href="index.php" class="nav-link">Help</a></li>
-                </ul>
-            </div>
+        <div id="navbar" type="login">
+            <h1><a href="index.php" id="nav-logo">Logo-Here</a></h1>
             <div id="nav-user">
                 <!-- TODO: Login page -->
                 <!-- TODO: Text above username saying "logged in as"/"welcome"-->
-                <a href="index.php" class="nav-link">Login</a>
+                <a href="login.php" class="nav-link-act">Login</a>
             </div>
         </div>
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Page Contents |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- TODO: Create basic table and button elements -->
-        <div id="foreground">
+        <div id="foreground" type="login">
             <h1>Welcome back</h1>
 
             <?php
@@ -89,24 +86,23 @@
                     echo "<p>" . $errorMessage . "</p>";
                 }
             ?>
+            <div>
+                <form action="#" method="POST">
+                    <div>
+                        <input id="email" name="email" type="text" placeholder="Email" class="login-field" required />
+                    </div>
 
-            <form action="#" method="POST">
-                <div>
-                    <label for="email">Email</label>
-                    <input id="email" name="email" type="text" placeholder="Enter your email..." required />
-                </div>
+                    <div>
+                        <input id="password" name="password" type="password" placeholder="Password" class="login-field" required />
+                    </div>
 
-                <div>
-                    <label for="password">Password</label>
-                    <input id="password" name="password" type="password" placeholder="Enter your password..." required />
-                </div>            
+                    <button type="submit" class="login-submit">Login</button>
 
-                <button type="submit">Login</button> 
-        
-                <div>
-                    <p>Don't have an account? <a href="register.php">Register now!</a></p>
-                </div>
-            </form>
+                    <div>
+                        <p>Don't have an account? <a href="register.php">Register now!</a></p>
+                    </div>
+                </form>
+            </div>
         </div>
 
         <!-- TODO: Create footer div and populate it. -->

@@ -1,8 +1,8 @@
-<!-- Thanks for checking out the source! This HTML was written by Lydia MacBride and Devin O'Keefe. PHP was written by Devin O'Keefe. -->
+<!-- Thanks for checking out the source! This HTML was written by Lydia MacBride. PHP was written by Devin O'Keefe. -->
 
 <?php
     session_start();
-    include("ConnectToDb.php");
+    include("connect-to-db.php");
 
     // Declare constants
     define("FORM_INCOMPLETE", "Unfortunately the form is not complete.");
@@ -64,16 +64,19 @@
         }
     }
 
+    // Check form is completed by making sure all fields are set
     function formIsCompleted ($name, $email, $password, $conPassword, $admin) {
         if (ISSET($name) AND ISSET($email) AND ISSET($password) AND ISSET($conPassword) AND ISSET($admin)) return true;
         return false;
     }
 
+    // Check email is valid
     function emailIsValid($email) {
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) return true;
         return false;
     }
 
+    // Make sure this email has not already been taken
     function emailNotTaken ($email, $con) {
         $sqlQuery = "SELECT id FROM accounts WHERE email_ad = ?";
         $stmt = $con->prepare($sqlQuery);
@@ -85,11 +88,13 @@
         return false;
     }
 
+    // Check that the number doesn't contain numbers or invalid characters
     function nameIsValid ($name) {
         if (preg_match("/^([a-zA-Z' ]+)$/", $name)) return true;
         return false;
     }
 
+    // Make sure that both passwords match
     function passwordsMatch ($pass, $conPass) {
         if ($pass == $conPass) return true;
         return false;
@@ -115,27 +120,19 @@
     </head>
     <body>
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Navigation Bar |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <div id="navbar">
-            <h1>Logo-Here</h1>
-            <div id="nav-links">
-                <ul class="nav-ul">
-                    <li class="nav-li"><a href="index.php" class="nav-link-act">Home</a> </li> <!-- Current Page! -->
-                    <li class="nav-li"><a href="instructor.php" class="nav-link">Instructor</a></li>
-                    <li class="nav-li"><a href="admin.php" class="nav-link">Admin</a></li>
-                    <li class="nav-li"><a href="index.php" class="nav-link">Help</a></li>
-                </ul>
-            </div>
+        <div id="navbar" type="login">
+            <h1><a href="index.php" id="nav-logo">Logo-Here</a></h1>
             <div id="nav-user">
                 <!-- TODO: Login page -->
                 <!-- TODO: Text above username saying "logged in as"/"welcome"-->
-                <a href="index.html" class="nav-link">Login</a>
+                <a href="index.html" class="nav-link-act">Login</a>
             </div>
         </div>
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Page Contents |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- TODO: Create basic table and button elements -->
-        <div id="foreground">
-            <h1>Register your account</h1>
+        <div id="foreground" type="login">
+            <h1>Register a new account</h1>
 
             <?php
                 if (!EMPTY($errorMessage)) {
@@ -146,32 +143,30 @@
             <form action="#" method="POST">
                 
                 <div>
-                    <label for="name">Name</label>
-                    <input id="name" name="name" type="text" placeholder="Enter your name..." required />
+                    <input id="name" name="name" type="text" placeholder="Enter your name..." class="login-field" required />
                 </div>
                 
                 <div>
-                    <label for="email">Email</label>
-                    <input id="email" name="email" type="text" placeholder="Enter your email..." required />
+                    <input id="email" name="email" type="text" placeholder="Enter your email..." class="login-field" required />
                 </div>
                 
                 <div>
-                    <label for="password">Password</label>
-                    <input id="password" name="password" type="password" placeholder="Enter a password..." required />
+                    <input id="password" name="password" type="password" placeholder="Enter a password..." class="login-field" required />
                 </div>
 
                 <div>
-                    <label for="confirmPassword">Confirm password</label>
-                    <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm password..." required />
+                    <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm password..." class="login-field" required />
                 </div>
-                
-                <div> 
-                    <label for="admin">Are you an admin?</label>
+
+                <!-- TODO: Remove this for final build
+                <div class="login-admin-check">
+                    <label for="admin" class="field-label">Are you an admin?</label>
                     <input type="hidden" id="admin" name="admin" value=0 />
-                    <input type="checkbox" id="admin" name="admin" value=1>
+                    <input type="checkbox" id="admin" name="admin" value=1 class="login-checkbox">
                 </div>
+                -->
 
-                <button type="submit">Register</button> 
+                <button type="submit" class="login-submit">Register</button>
         
                 <div>
                     <p>Already have an account? <a href="login.php">Login here!</a></p>
