@@ -1,7 +1,7 @@
 <?php
 
 // import TCPDF
-require_once('tcpdf.php'); // point this to tcpdf location - get it from https://github.com/tecnickcom/tcpdf
+require_once('libraries/tcpdf_min/tcpdf.php'); // point this to tcpdf location - get it from https://github.com/tecnickcom/tcpdf
 
 // create PDF document
 $pdf = new TCPDF('P', PDF_UNIT, 'A4', true, 'UTF-8', false);
