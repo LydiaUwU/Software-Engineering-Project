@@ -298,6 +298,7 @@ a.nav-link-act:hover {
     padding: 0px 20px;
     text-align: center;
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .claim-edit {
@@ -316,6 +317,8 @@ a.nav-link-act:hover {
     padding: 0px 20px;
     margin-bottom: 5px;
     background-color: var(--foreground-link);
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 /* Claim Status */
