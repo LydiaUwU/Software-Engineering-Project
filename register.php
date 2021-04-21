@@ -125,7 +125,7 @@
             <div id="nav-user">
                 <!-- TODO: Login page -->
                 <!-- TODO: Text above username saying "logged in as"/"welcome"-->
-                <a href="index.html" class="nav-link-act">Login</a>
+                <a href="login.php" class="nav-link-act">Login</a>
             </div>
         </div>
 
