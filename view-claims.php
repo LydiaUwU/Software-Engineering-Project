@@ -80,15 +80,15 @@
                                 </div>
                                 </div>
                             </div>";
+
+                        // Submit and Download Claims
+                        echo "<div id=\"claim-dl\">
+                                <p onclick=\"window.location='claimform.php?claim=" . $claimId . "';\">Download Completed Claim</p>
+                              </div>";
                     }
                 }
 
             ?>
-
-            <!-- Submit and Download Claims -->
-            <div id="claim-dl">
-                <p>Download Completed Claim</p>
-            </div>
         </div>
 
         <!-- TODO: Create footer div and populate it. -->
