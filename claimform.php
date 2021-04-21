@@ -12,10 +12,10 @@ $pdf->SetPrintHeader(false);
 $pdf->SetPrintFooter(false);
 $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 $pdf->SetMargins(5, 5, 5);
-$pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+$pdf->SetAutoPageBreak(TRUE, 5);
 
 $pdf->AddPage();
-$pdf->SetFont('helvetica','', 10);
+$pdf->SetFont('helvetica','', 9);
 
 $html = <<<EOF
     <style>
@@ -38,6 +38,7 @@ $html = <<<EOF
         }
         .formInput {
             background-color:lightyellow;
+            font-weight:bold;
         }
         .formOfficial {
             background-color:grey;
@@ -52,15 +53,7 @@ $html = <<<EOF
     <h3 style="color:red">It is important to complete all sections of this form, otherwise you may receive incorrect or no payment.</h3>
 
     <table>
-        <tr>
-            <td class="formLabel">Please tick the relevant payroll category to you:</td>
-            <td class="formInput" colspan="7">
-                <input type="checkbox" name="payrollWeekly" id="payrollWeekly" />Weekly
-                <input type="checkbox" checked="checked" name="payrollMonthly" id="payrollMonthly" />Monthly
-                <input type="checkbox" name="payrollCasual" id="payrollCasual" />Casual
-                <input type="checkbox" name="payrollFirst" id="payrollFirst" />First time to be paid
-            </td>
-        </tr>
+        <!-- ASSUME MONTHLY PAYROLL -->
         <tr>
             <td class="formLabel">Surname:</td>
             <td class="formInput"><!--SURNAME--></td>
@@ -103,7 +96,7 @@ $html = <<<EOF
             <td class="formLabel">Bank Sort Code:</td>
             <td class="formInput"><!--BANK SORT CODE--></td>
             <td class="formLabel">Dept/School where work was performed:</td>
-            <td>School of Computer Science and Statistics</td>
+            <td class="formInput">School of Computer Science and Statistics</td>
         </tr>
         <tr>
             <td class="formLabel">IBAN No. <br> <small>(SEPA Requirement)</small></td>
