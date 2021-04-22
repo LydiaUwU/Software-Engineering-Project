@@ -25,7 +25,7 @@
 
             <ul>
                 <li><a href="update-info.php">Update personal information</a></li>
-                <li><a href="claimform.php">Log Activity</a></li>
+                <li><a href="update-claim.php">Log Activity</a></li>
                 <li><a href="instructor.php">View Claims</a></li>
             </ul>
         </div>

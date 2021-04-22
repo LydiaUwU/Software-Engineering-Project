@@ -4,10 +4,11 @@
     session_start();                    // Start session cookies
     include("connect-to-db.php");       // Connect to database
     include("helper-functions.php");    // Access helper functions
+    include("header.php");
 
     // Declare constants
     define("INVALID_EMAIL", "Unfortunately this email has an invalid format. Please try again.");
-    define("EMAIL_TAKEN", "Unfortunately an account already exists with this email. Please choose another.");    
+    define("EMAIL_TAKEN", "Unfortunately an account already exists with this email. Please choose another.");
     define("NAME_INVALID", "The inputted name is valid. Please only use letters.");
     define("PASSWORDS_DONT_MATCH", "Your two inputted passwords do not match. Please try again.");
 
@@ -140,7 +141,7 @@
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Page Contents |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <!-- TODO: Create basic table and button elements -->
 <div id="foreground">
-    <h1>Update Personal Information</h1>
+    <h1>Submit a claim</h1>
 
     <?php
         if (!EMPTY($errorMessage)) {
@@ -151,28 +152,23 @@
     <div id="update">
         <form action="#" method="POST">
             <div>
-                <label>Name</label>
-                <input id="name" name="name" type="text" placeholder="Enter your name..." class="login-field" />
+                <label>Module Code</label>
+                <input id="name" name="name" type="text" placeholder="Module Code" class="login-field" />
             </div>
-    
+
             <div>
-                <label>Email</label>
-                <input id="email" name="email" type="text" placeholder="Enter your email..." class="login-field" />
+                <label>Date of Claim</label>
+                <input id="email" name="email" type="date" class="login-field" />
             </div>
-    
+
             <div>
-                <label>New password</label>
-                <input id="password" name="password" type="password" placeholder="Enter a password..." class="login-field" />
+                <label>Duration (Hours)</label>
+                <input id="name" name="name" type="text" placeholder="Duration (Hours)" class="login-field" />
             </div>
-    
-            <div>
-                <label>Confirm new password</label>
-                <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm password..." class="login-field" />
-            </div>
-    
+
             <div>
                 <button type="reject" class="update-button">Cancel</button>
-                <button type="submit" class="update-button">Update</button>
+                <button type="submit" class="update-button">Submit</button>
             </div>
         </form>
     </div>
