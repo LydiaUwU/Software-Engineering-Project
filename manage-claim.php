@@ -55,20 +55,19 @@
                     echo "<div class=\"claim\" id=\"" . $claimId . "\">
                             <p>" . $moduleName . " " . $startDay . " " . $startDatetime->format('d-m-Y H:i') . " " . $duration . " Hours </p>
 
-                            <div class=\"claim-buttons\">" . 
-                              //<div class=\"claim-edit\">
-                              //  <p>Edit</p>
-                              //</div>
-                              "<div class=\"claim-reject\" onclick=\"rejectClaim('" . $claimId . "')\">
-                                <p>Reject</p>
-                              </div>
+                            <div class=\"claim-buttons\">" .
+                                //<div class=\"claim-edit\">
+                                //  <p>Edit</p>
+                                //</div>
+                                "<div class=\"claim-reject\" onclick=\"rejectClaim('" . $claimId . "')\">
+                                    <p>Reject</p>
+                                </div>
                             </div>
-                          </div>";
-
-                    // Submit and Download Claims
-                    echo "<div id=\"claim-dl\">
-                            <p onclick=\"window.location='claimform.php?claim=" . $claimId . "';\">Download Completed Claim</p>
-                          </div>";
+                            <div id=\"claim-dl\">
+                                <p onclick=\"window.location='claimform.php?claim=" . $claimId . "';\">Download Completed Claim</p>
+                              </div>
+                        </div>
+                        <br><br><br>";
                 }
 
             ?>
