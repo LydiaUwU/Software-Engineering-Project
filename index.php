@@ -1,5 +1,9 @@
 <!-- Thanks for checking out the source! This HTML was written by Lydia MacBride -->
 
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>  
@@ -29,9 +33,19 @@
                 </ul>
             </div>
             <div id="nav-user">
-                <!-- TODO: Login page -->
-                <!-- TODO: Text above username saying "logged in as"/"welcome"-->
-                <a href="login.php" class="nav-link">Login</a>
+                <?php
+                    if (isset($_SESSION["name"]) && !EMPTY($_SESSION["name"])) {
+                        echo "
+                            <a href=\"instructor.php\" class=\"nav-link\">" . $_SESSION["name"] . "</a>
+                            <a href=\"logout.php\" class=\"nav-link\">Logout</a>
+                        ";
+                    }
+
+                    else {
+                        echo "<a href=\"login.php\" class=\"nav-link\">Login</a>";
+                    }
+                ?>
+
             </div>
         </div>
 
@@ -56,3 +70,4 @@
         <!-- TODO: Create footer div and populate it. -->
     </body>
 </html>
+
