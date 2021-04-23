@@ -18,7 +18,6 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
         <!-- Karrik -->
-        <!-- TODO: Create basic logo concept. -->
         <link href="fonts/karrik/karrik.css" rel="stylesheet">
     </head>
     <body>
