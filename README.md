@@ -9,9 +9,7 @@
 
 Author: Lydia MacBride
 
-This directory contains my initial mockups for how the site will work.
-These are just dummy pages that that feature basic HTML5 and CSS3. For future versions
-we plan on writing the UI in React.
+The user interface on the visual side of things is written purely in HTML5 and CSS as I wish to keep the site lightweight and easy to modify. The style sheet is commented to indicate what each section controls and I used variables (all located at the top of the file) to allow the colour scheme to be modified with relative ease.
 
 ### Sources
 
@@ -25,6 +23,7 @@ we plan on writing the UI in React.
 - Accessibility (will work on colour schemes soon)
 - Make it not look like every other website in existence (I do not like bootstrap.js)
 - Brutalist design
+- Lightweight
 
 ## Database Overview
 
