@@ -2,6 +2,7 @@
 
 <?php
     session_start();
+    include("connect-to-db.php");
 ?>
 
 <!DOCTYPE html>
