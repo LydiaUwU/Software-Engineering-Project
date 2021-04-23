@@ -46,7 +46,11 @@
             <p> - choose to approve or reject claims </p> 
             <p> - generate and download a pdf of the original pay claim form once claims are approved </p>
             <p> <b> FOR DEMONSTRATORS: </b> </p>
-            <p> 
+            <p> Please login using your TCD username and password, once logged in you may: </p>
+            <p> - submit new pay claims </p>
+            <p> - view pevious claims </p>
+            <p> - view profile and teaching hours remaining </p>
+            <p> - edit submitted claims </p>
         </div>
 
         <!-- TODO: Create footer div and populate it. -->
